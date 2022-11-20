@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">JinusicBox —— 禁音盒</string>
+    <string name="bian_shi_ren_zhen">便是认真</string>
+    <string name="bian">便</string>
+    <string name="shi">是</string>
+    <string name="ren">认</string>
+    <string name="zhen">真</string>
+    <string name="right">对</string>
+    <string name="try_it">试试看</string>
+    <string name="too_young">太年轻</string>
+    <string name="you_are_so_brave">你很勇哦</string>
+    <string name="hello_everyone">大家好</string>
+    <string name="fw">废物</string>
+    <string name="haha">哈哈哈</string>
+    <string name="music">音乐</string>
+    <string name="xiao_huo_zi">小伙子</string>
+    <string name="very_well">真不错</string>
+    <string name="xiao_chou">小丑</string>
+    <string name="thank_you">谢谢</string>
+    <string name="i_well_call_you_father">我叫你爸爸</string>
+    <string name="father">爸</string>
+    <string name="self_introduction">自我介绍</string>
+    <string name="self_you_have">你还有多少</string>
+    <string name="self_i_have">我也没办法</string>
+
+    <string name="jp_wdxw">私は</string>
+    <string name="jp_desu">です</string>
+    <string name="jp_nnxd">なにしだょ</string>
+    <string name="jp_smms">すみません</string>
+    <string name="jp_kmns">ごめんなさい</string>
+
+    <string name="jp">异国风情：</string>
+    <string name="long_sentences">长句子：</string>
+    <string name="short_sentences">短句：</string>
+    <string name="classic">回味经典：</string>
+    <string name="interest">兴趣是最好的老师</string>
+
+    <string name="null_refreshed">未刷新</string>
+    <string name="click_count">点击次数 ：</string>
+    <string name="setting">设置</string>
+    <string name="basic_info">个人信息　：</string>
+    <string name="test_info">调试信息 ：</string>
+    <string name="version_key">版本 ：</string>
+    <string name="version">1.4d</string>
+    <string name="surprise_key">彩蛋发现数 ：</string>
+    <string name="surprise_out_of">  / 3</string>
+    <string name="date_key">日期 ：</string>
+    <string name="others">其他 ：</string>
+    <string name="cd_key">兑换码 ：</string>
+    <string name="go">go</string>
+    <string name="learning">心得报告</string>
+    <string name="cd_key_enabled_count">DLC兑换数 ：</string>
+    <string name="cd_key_enabled_count_out_of">  / 2</string>
+</resources>
