@@ -58,7 +58,7 @@ public class SettingActivity extends AppCompatActivity {
         String d = " " + spf.format(date);
         tv_date.setText(d);
 
-        //NEVER GONNA GIVE YOU UP
+        //NEVER GONNA GIVE YOU UP.
         View give_up = findViewById(R.id.report_of_experience);
         give_up.setOnClickListener(view -> {
             Uri uri = Uri.parse("https://b23.tv/uXhAVDF");
