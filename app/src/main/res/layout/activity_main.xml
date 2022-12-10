@@ -40,327 +40,371 @@
         android:scrollbars="vertical"
         android:overScrollMode="never">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/classic"
+                android:padding="3dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/classic"
-                    android:padding="3dp"/>
-
-                <LinearLayout
+                android:orientation="horizontal">
+                <Button
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:text="@string/bian_shi_ren_zhen"
-                        android:id="@+id/btn_rz"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/bian"
-                        android:id="@+id/btn_bian"
-                        android:background="@drawable/basic"/>
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/shi"
-                        android:id="@+id/btn_shi"
-                        android:background="@drawable/basic"
-                        />
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/ren"
-                        android:id="@+id/btn_ren"
-                        android:background="@drawable/basic"/>
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/zhen"
-                        android:id="@+id/btn_zhen"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <include layout="@layout/line"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/short_sentences"
-                    android:padding="3dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_right"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/right"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_try"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/try_it"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_too_young"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/too_young"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_you_are_so_brave"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/you_are_so_brave"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <Button
-                        android:id="@+id/btn_hello_everyone"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/hello_everyone"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_haha"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/haha"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_fw"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/fw"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_music"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/music"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <Button
-                        android:id="@+id/btn_xiao_huo_zi"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/xiao_huo_zi"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_xiao_chou"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/xiao_chou"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_very_well"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/very_well"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_thank_you"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/thank_you"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <include layout="@layout/line"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/long_sentences"
-                    android:padding="3dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_call_father"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="3"
-                        android:text="@string/i_well_call_you_father"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_father"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/father"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/self_you_have"
-                        android:id="@+id/btn_you_have"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/self_i_have"
-                        android:id="@+id/btn_i_have"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/self_introduction"
-                        android:id="@+id/btn_self"
-                        android:background="@drawable/basic"/>
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/interest"
-                        android:id="@+id/btn_interest"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <include layout="@layout/line"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/jp"
-                    android:padding="3dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:text="@string/jp_kmns"
-                        android:id="@+id/btn_jp_kmns"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <Button
-                        android:id="@+id/btn_jp_wdxw"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/jp_wdxw"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_jp_desu"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="@string/jp_desu"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <Button
-                        android:id="@+id/btn_jp_nnxd"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:text="@string/jp_nnxd"
-                        android:background="@drawable/basic"/>
-
-                    <Button
-                        android:id="@+id/btn_jp_smms"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:textSize="12sp"
-                        android:text="@string/jp_smms"
-                        android:background="@drawable/basic"/>
-                </LinearLayout>
-
+                    android:layout_height="50dp"
+                    android:text="@string/bian_shi_ren_zhen"
+                    android:id="@+id/btn_rz"
+                    android:background="@drawable/basic"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/bian"
+                    android:id="@+id/btn_bian"
+                    android:background="@drawable/basic"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/shi"
+                    android:id="@+id/btn_shi"
+                    android:background="@drawable/basic"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/ren"
+                    android:id="@+id/btn_ren"
+                    android:background="@drawable/basic"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/zhen"
+                    android:id="@+id/btn_zhen"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/short_sentences"
+                android:padding="3dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_right"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/right"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_try"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/try_it"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_too_young"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/too_young"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_you_are_so_brave"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/you_are_so_brave"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_hello_everyone"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/hello_everyone"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_haha"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/haha"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_fw"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/fw"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_music"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/music"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_xiao_huo_zi"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/xiao_huo_zi"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_xiao_chou"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/xiao_chou"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_very_well"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/very_well"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_thank_you"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/thank_you"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/long_sentences"
+                android:padding="3dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_call_father"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:text="@string/i_well_call_you_father"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_father"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/father"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/self_you_have"
+                    android:id="@+id/btn_you_have"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/self_i_have"
+                    android:id="@+id/btn_i_have"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/self_introduction"
+                    android:id="@+id/btn_self"
+                    android:background="@drawable/basic"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/interest"
+                    android:id="@+id/btn_interest"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jp"
+                android:padding="3dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="@string/jp_kmns"
+                    android:id="@+id/btn_jp_kmns"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_jp_wdxw"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/jp_wdxw"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_jp_desu"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/jp_desu"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_jp_nnxd"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:text="@string/jp_nnxd"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_jp_smms"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:text="@string/jp_smms"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+            <!--dlc系列-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/dlc_hu_sign"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dlc_hu_context"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dlc_hu"
+                        android:padding="3dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <Button
+                            android:id="@+id/btn_hu_cao"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:text="@string/hu_cao"
+                            android:background="@drawable/basic_yellow"/>
+
+                        <Button
+                            android:id="@+id/btn_hu_cnm"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:text="@string/hu_cnm"
+                            android:background="@drawable/basic_yellow"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

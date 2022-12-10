@@ -13,4 +13,6 @@
     <color name="line">#d7d7d7</color>
     <color name="red_700">#FFdd2277</color>
     <color name="red_context">#FFf3eeee</color>
+    <color name="yellow_dlc">#ffffff66</color>
+    <color name="yellow_dlc_light">#FFFFFD</color>
 </resources>

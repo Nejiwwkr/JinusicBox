@@ -54,7 +54,11 @@ public class Confound {
         tranI = Long.parseLong(code,32);
         tranS = Long.toHexString(tranI);
         //反混淆
-        tranS = tranS.substring(0,tranS.length() - key.length());
+        if (tranS.substring(tranS.length() - key.length()).equalsIgnoreCase(key)) {
+            tranS = tranS.substring(0,tranS.length() - key.length());
+        }else {
+            return 1111111L;
+        }
         //16 -> 8
         tranI = Long.parseLong(tranS,16);
         tranS = Long.toOctalString(tranI);
@@ -82,28 +86,41 @@ public class Confound {
     }
 
     public static boolean isValidCode (String code,String key) {
-        Date date = new Date();
-        SimpleDateFormat spf = new SimpleDateFormat("yMdHm");
-        String s = spf.format(date);
-        s = s.substring(3,10) + "0";
+        String s = getDate();
         boolean res = false;
 
         if (deConfoundCode(code,key).equals(Long.valueOf(s))) res = true;
         return res;
     }
-    public static void main(String[] args) {
+
+    public static String getValidCode (String key) {
+        String res = confoundCode(Long.valueOf(getDate()),key);
+        return res;
+    }
+
+    public static String getDate () {
         Date date = new Date();
-        SimpleDateFormat spf = new SimpleDateFormat("yMdHm");
-        String s = spf.format(date);
-        s = s.substring(3,10) + "0";
-
-        String key = "e";
-        Long seed = Long.valueOf(s);
-        System.out.println(confoundCode(seed,key));
-        System.out.println(deConfoundCode(confoundCode(seed,key),key));
-
-        System.out.println(isValidCode("3E6RCOGU",key));
-        //System.out.println(confoundCode(123456789L,"ee"));
+        SimpleDateFormat spf_y = new SimpleDateFormat("y");
+        SimpleDateFormat spf_mo = new SimpleDateFormat("M");
+        SimpleDateFormat spf_d = new SimpleDateFormat("d");
+        SimpleDateFormat spf_h = new SimpleDateFormat("h");
+        SimpleDateFormat spf_mi = new SimpleDateFormat("m");
+        String s_y = spf_y.format(date);
+        String s_mo = spf_mo.format(date);
+        String s_d = spf_d.format(date);
+        String s_h = spf_h.format(date);
+        String s_mi = spf_mi.format(date);
+        String s = "";
+        s += s_y.substring(3);
+        if (s_mo.length() == 1) s += 0 + s_mo;
+        if (s_mo.length() == 2) s += s_mo;
+        if (s_d.length() == 1) s += 0 + s_d;
+        if (s_d.length() == 2) s += s_d;
+        if (s_h.length() == 1) s += 0 + s_h;
+        if (s_h.length() == 2) s += s_h;
+        if (s_mi.length() == 1) s += 0;
+        if (s_mi.length() == 2) s += s_mi.charAt(0);
+        return s;
     }
 }
 

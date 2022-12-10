@@ -9,8 +9,8 @@ android {
         applicationId "com.crystalx.jinusicbox"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 12
+        versionName "1.4e"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

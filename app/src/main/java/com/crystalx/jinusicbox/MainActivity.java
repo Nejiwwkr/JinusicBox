@@ -1,5 +1,12 @@
 package com.crystalx.jinusicbox;
 
+import static com.crystalx.generalduty.conf.Confound.confoundCode;
+import static com.crystalx.generalduty.conf.Confound.getDate;
+import static com.crystalx.generalduty.conf.Confound.isValidCode;
+import static com.crystalx.jinusicbox.MainActivity.editor;
+import static com.crystalx.jinusicbox.MainActivity.musicButtons;
+import static com.crystalx.jinusicbox.MainActivity.sp;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,39 +15,52 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.crystalx.generalduty.error.NotEncodedException;
+
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     public static MediaPlayer mp = new MediaPlayer();
-    public static int count,surprise_count = 0;
+    public static int count,surprise_count = 0,DLC_Count = 0;
     public static String lastClick = "nnnnnnnn";
     /**
      * 0：未发现，1：已发现
      */
-    public int is_sur_A_founded = 0,is_sur_B_founded = 0,is_sur_C_founded = 0;
+    public static int is_sur_A_founded = 0,is_sur_B_founded = 0,is_sur_C_founded = 0;
+    public static SharedPreferences.Editor editor;
+    public static SharedPreferences sp;
+    public static int is_DLC_HU_Activated = 0;
 
     /**
      * 所有musicButton的序列<br></br>id:唯一序列码
      * <p>第一位有固定格式，第二位以读音来<br></br>c : classic , 禁典;<br></br>j : japan , 异国风情;</p>
      */
-    public musicButton[] musicButtons;
+    public static musicButton[] musicButtons;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Animation anim = AnimationUtils.loadAnimation(MainActivity.this,R.anim.anim_small);
-        SharedPreferences sp = getSharedPreferences("BASIC_INFORMATION",MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
+        sp = getSharedPreferences("BASIC_INFORMATION",MODE_PRIVATE);
+        editor = sp.edit();
         count = sp.getInt("COUNT",0);
         surprise_count = sp.getInt("SURPRISE",0);
         is_sur_A_founded = sp.getInt("A_FOUNDED",0);
         is_sur_B_founded = sp.getInt("B_FOUNDED",0);
         is_sur_C_founded = sp.getInt("C_FOUNDED",0);
+
+        DLC_Count = sp.getInt("DLC",0);
+        is_DLC_HU_Activated = sp.getInt("HU_ACTIVATED",0);
+        if (is_DLC_HU_Activated == 1) new FoldableForDLC(findViewById(R.id.dlc_hu_sign),findViewById(R.id.dlc_hu_context)).unfold();
 
         musicButtons = new musicButton[]{
                 new musicButton(findViewById(R.id.btn_rz), R.raw.bian_shi_ren_zheng),
@@ -77,16 +97,25 @@ public class MainActivity extends AppCompatActivity {
                 new musicButton(findViewById(R.id.btn_jp_nnxd), R.raw.jp_nanixide),
                 new musicButton(findViewById(R.id.btn_jp_smms), R.raw.jp_simimase),
                 new musicButton(findViewById(R.id.btn_jp_wdxw), R.raw.jp_wadaxiwa, "jw"),
+
+                new musicButton(findViewById(R.id.btn_hu_cao), R.raw.hu_cao),
+                new musicButton(findViewById(R.id.btn_hu_cnm), R.raw.hu_cnm),
         };
         for (musicButton mb : musicButtons) {
             mb.getButton().setOnClickListener(view -> {
+                //动画
                 mb.getButton().startAnimation(anim);
 
+                //播放音乐
                 playSound(this,mb.getMusicID());
+                //检查个数弹窗
                 this.checkCount();
+                //更新点击数
                 editor.putInt("COUNT",count).apply();
 
+                //写入统一编码区,并检验其是否触发彩蛋
                 this.surprise(mb.getId());
+                //更新彩蛋数据
                 if (is_sur_A_founded == 1)  editor.putInt("A_FOUNDED",1).apply();
                 if (is_sur_B_founded == 1)  editor.putInt("B_FOUNDED",1).apply();
                 if (is_sur_C_founded == 1)  editor.putInt("C_FOUNDED",1).apply();
@@ -229,5 +258,15 @@ class musicButton {
 
     public String getId() {
         return id;
+    }
+
+    public static musicButton findMusicButtonByID (String id){
+        if (Objects.equals(id, "nn")) throw new NotEncodedException("未编码");
+
+        musicButton res;
+        for (musicButton mb : musicButtons) {
+            if (Objects.equals(mb.getId(), id)) res = mb;
+        }
+        return null;
     }
 }

@@ -328,6 +328,23 @@
                     android:layout_gravity="center"
                     />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/official_website"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/basic">
+                <TextView
+                    android:paddingStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/official_website"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
