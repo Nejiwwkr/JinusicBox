@@ -222,6 +222,46 @@
                     android:background="@drawable/basic"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_first_point"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/the_first_point"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_second_point"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/the_second_thing"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_third_point"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/the_third_point"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_father"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/father"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+
             <include layout="@layout/line"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -242,13 +282,6 @@
                     android:text="@string/i_well_call_you_father"
                     android:background="@drawable/basic"/>
 
-                <Button
-                    android:id="@+id/btn_father"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="@string/father"
-                    android:background="@drawable/basic"/>
             </LinearLayout>
 
             <LinearLayout
@@ -293,6 +326,58 @@
                     android:id="@+id/btn_interest"
                     android:background="@drawable/basic"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/nmdybb"
+                    android:id="@+id/btn_nmdybb"
+                    android:background="@drawable/basic"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/i_delete"
+                    android:id="@+id/btn_i_delete"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modal_words"
+                android:padding="3dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_aiya"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/aiya"
+                    android:background="@drawable/basic"/>
+
+                <Button
+                    android:id="@+id/btn_aiyaha"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/aiyaha"
+                    android:background="@drawable/basic"/>
+            </LinearLayout>
+
 
             <include layout="@layout/line"/>
             <TextView
@@ -360,6 +445,7 @@
                     android:text="@string/jp_smms"
                     android:background="@drawable/basic"/>
             </LinearLayout>
+
 
             <include layout="@layout/line"/>
             <!--dlc系列-->

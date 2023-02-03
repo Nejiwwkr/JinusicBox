@@ -1,11 +1,8 @@
 package com.crystalx.jinusicbox;
 
-import static com.crystalx.generalduty.conf.Confound.confoundCode;
-import static com.crystalx.generalduty.conf.Confound.getDate;
-import static com.crystalx.generalduty.conf.Confound.isValidCode;
-import static com.crystalx.jinusicbox.MainActivity.editor;
 import static com.crystalx.jinusicbox.MainActivity.musicButtons;
-import static com.crystalx.jinusicbox.MainActivity.sp;
+import static com.crystalx.jinusicbox.PureActivity.lastSelectedPureButtonText;
+import static com.crystalx.jinusicbox.PureActivity.lastSelectedPureButtonMusicID;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,29 +12,34 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.crystalx.generalduty.error.NotEncodedException;
-
 import java.util.Objects;
 
+/**
+ * 主要活动类，包含对按钮，存储数据的初始化<p>
+ * 播放音乐的所有方法：<br>
+ * {@link MainActivity#playSound(Context context, int id)}//普通播放音乐<br>
+ * {@link MainActivity#playSoundLegato(Context context, int id)}//不允许重叠地播放音乐<br>
+ * {@link MainActivity#playSoundSync(Context context, int id)}//<strong>同步化地</strong>播放音乐，用于连续播放一段音频序列<br>
+ * context:播放的<strong>Activity</strong><br>
+ * id:对应音乐文件的{@link R.raw}<strong>编号</strong><br>
+ * <strong>注意：这些方法与{@link musicButton}无直接关系</strong>
+ */
 public class MainActivity extends AppCompatActivity {
-
-    public static MediaPlayer mp = new MediaPlayer();
     public static int count,surprise_count = 0,DLC_Count = 0;
     public static String lastClick = "nnnnnnnn";
     /**
      * 0：未发现，1：已发现
      */
     public static int is_sur_A_founded = 0,is_sur_B_founded = 0,is_sur_C_founded = 0;
+    public static int is_DLC_HU_Activated = 0;
     public static SharedPreferences.Editor editor;
     public static SharedPreferences sp;
-    public static int is_DLC_HU_Activated = 0;
 
     /**
      * 所有musicButton的序列<br></br>id:唯一序列码
@@ -85,12 +87,21 @@ public class MainActivity extends AppCompatActivity {
                 new musicButton(findViewById(R.id.btn_very_well), R.raw.very_well),
                 new musicButton(findViewById(R.id.btn_thank_you), R.raw.thank_you),
 
-                new musicButton(findViewById(R.id.btn_call_father), R.raw.wo_jiao_ni_ba_ba),
+                new musicButton(findViewById(R.id.btn_first_point), R.raw.the_first_point),
+                new musicButton(findViewById(R.id.btn_second_point), R.raw.the_second_point),
+                new musicButton(findViewById(R.id.btn_third_point), R.raw.the_third_point),
                 new musicButton(findViewById(R.id.btn_father), R.raw.ba_ba),
+
+                new musicButton(findViewById(R.id.btn_call_father), R.raw.wo_jiao_ni_ba_ba),
                 new musicButton(findViewById(R.id.btn_self), R.raw.self_introduction),
                 new musicButton(findViewById(R.id.btn_you_have), R.raw.how_much_do_you_hava,"ch"),
                 new musicButton(findViewById(R.id.btn_i_have), R.raw.i_hava_no_idea),
                 new musicButton(findViewById(R.id.btn_interest), R.raw.interest_is_the_best_teacher),
+                new musicButton(findViewById(R.id.btn_nmdybb), R.raw.nmdybb),
+                new musicButton(findViewById(R.id.btn_i_delete), R.raw.i_want_to_delete),
+
+                new musicButton(findViewById(R.id.btn_aiya), R.raw.aiya_1),
+                new musicButton(findViewById(R.id.btn_aiyaha), R.raw.aiya_2),
 
                 new musicButton(findViewById(R.id.btn_jp_kmns), R.raw.jp_komenasai),
                 new musicButton(findViewById(R.id.btn_jp_desu), R.raw.jp_dexuo),
@@ -101,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 new musicButton(findViewById(R.id.btn_hu_cao), R.raw.hu_cao),
                 new musicButton(findViewById(R.id.btn_hu_cnm), R.raw.hu_cnm),
         };
+        //监听单击事件
         for (musicButton mb : musicButtons) {
             mb.getButton().setOnClickListener(view -> {
                 //动画
@@ -123,6 +135,22 @@ public class MainActivity extends AppCompatActivity {
                 editor.putInt("SURPRISE",surprise_count).apply();
             });
         }
+        //通用长按
+        for (musicButton mb : musicButtons) {
+            mb.getButton().setOnLongClickListener(v -> {
+                if (mb != musicButtons[28]) {
+                    lastSelectedPureButtonMusicID = mb.getMusicID();
+                    lastSelectedPureButtonText = (String) mb.getButton().getText();
+                    Intent i = new Intent(MainActivity.this,PureActivity.class);
+                    startActivity(i);
+                }else{
+                    Intent i = new Intent(MainActivity.this,KeyboardActivity.class);
+                    startActivity(i);
+                    return true;
+                }
+                return true;
+            });
+        }
 
         ImageView menu = findViewById(R.id.im_menu);
         menu.setOnClickListener(view -> {
@@ -131,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @see MainActivity
+     */
     public static void playSound(Context context, int id) {
         MediaPlayer mp_ps = new MediaPlayer();
         mp_ps = MediaPlayer.create(context, id);
@@ -138,15 +169,50 @@ public class MainActivity extends AppCompatActivity {
         if(!mp_ps.isPlaying()) mp_ps.release();
         count++;
     }
+
+    public static MediaPlayer mp_sync = new MediaPlayer();
+    //TODO 为该方法分配额外线程
+    /**
+     * @see MainActivity
+     */
     public synchronized static void playSoundSync (Context context, int id) {
-        mp = MediaPlayer.create(context, id);
-        mp.start();
+        mp_sync = MediaPlayer.create(context, id);
+        mp_sync.start();
         try {
             Thread.sleep(250L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(!mp.isPlaying()) mp.release();
+        if(!mp_sync.isPlaying()) mp_sync.release();
+    }
+
+    private static Runnable mp_sync_runnable;
+    public synchronized static void playSoundAsync(Context context, int gapTime, int... IDs) {
+        mp_sync_runnable = () -> {
+            for (int i : IDs){
+                mp_sync = MediaPlayer.create(context, i);
+                mp_sync.start();
+                try {
+                    Thread.sleep(gapTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(!mp_sync.isPlaying()) mp_sync.release();
+            }
+        };
+        Thread t = new Thread(mp_sync_runnable);
+        t.start();
+    }
+
+    static MediaPlayer mp_legato = new MediaPlayer();
+    /**
+     * @see MainActivity
+     */
+    public static void playSoundLegato(Context context, int id) {
+        if(mp_legato.isPlaying()) mp_legato.release();
+        mp_legato = MediaPlayer.create(context, id);
+        mp_legato.start();
+        count++;
     }
 
     public void checkCount() {
@@ -248,25 +314,29 @@ class musicButton {
         this.musicID = MusicID;
         this.id = id;
     }
+    public musicButton (Button btn,Notes pitchedNote){
+        this.btn = btn;
+        this.musicID = pitchedNote.getMusicID();
+        this.id = pitchedNote.getButtonID();
+    }
+
     public Button getButton() {
         return btn;
     }
-
     public int getMusicID() {
         return musicID;
     }
-
     public String getId() {
         return id;
     }
 
-    public static musicButton findMusicButtonByID (String id){
+    public static musicButton findMusicButtonByID (String id) throws NotEncodedException {
         if (Objects.equals(id, "nn")) throw new NotEncodedException("未编码");
 
-        musicButton res;
+        musicButton res = null;
         for (musicButton mb : musicButtons) {
             if (Objects.equals(mb.getId(), id)) res = mb;
         }
-        return null;
+        return res;
     }
 }

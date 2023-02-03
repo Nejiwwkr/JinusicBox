@@ -15,4 +15,7 @@
     <color name="red_context">#FFf3eeee</color>
     <color name="yellow_dlc">#ffffff66</color>
     <color name="yellow_dlc_light">#FFFFFD</color>
+    <color name="key_white">#e3e5e7</color>
+    <color name="key_black">#151515</color>
+    <color name="key_selected">#1E88E5</color>
 </resources>

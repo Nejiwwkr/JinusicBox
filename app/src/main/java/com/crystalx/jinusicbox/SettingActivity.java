@@ -1,12 +1,11 @@
 package com.crystalx.jinusicbox;
 
-import static com.crystalx.generalduty.conf.Confound.getValidCode;
 import static com.crystalx.generalduty.conf.Confound.isValidCode;
 import static com.crystalx.jinusicbox.MainActivity.DLC_Count;
 import static com.crystalx.jinusicbox.MainActivity.count;
 import static com.crystalx.jinusicbox.MainActivity.editor;
 import static com.crystalx.jinusicbox.MainActivity.is_DLC_HU_Activated;
-import static com.crystalx.jinusicbox.MainActivity.sp;
+import static com.crystalx.jinusicbox.MainActivity.playSoundAsync;
 import static com.crystalx.jinusicbox.MainActivity.surprise_count;
 
 import androidx.appcompat.app.AlertDialog;
@@ -23,9 +22,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * 设置界面的Activity
+ * @see MainActivity
+ */
 public class SettingActivity extends AppCompatActivity {
 
     @Override
@@ -116,7 +118,6 @@ public class SettingActivity extends AppCompatActivity {
             editor.putInt("DLC",DLC_Count).apply();
         });
     }
-
 }
 
 class Foldable {
@@ -162,7 +163,7 @@ class Foldable {
     }
 }
 
-class FoldableForDLC {
+class FoldableForDLC{
     boolean is_folded = true;
     View sign;
     View context;

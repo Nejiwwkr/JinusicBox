@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">JinusicBox —— 禁音盒</string>
-    <string name="version">1.4e</string>
+    <string name="version">1.5e</string>
     <string name="bian_shi_ren_zhen">便是认真</string>
     <string name="bian">便</string>
     <string name="shi">是</string>
@@ -55,4 +55,13 @@
     <string name="dlc_hu">DLC 胡</string>
     <string name="hu_cao">草</string>
     <string name="hu_cnm">草泥马</string>
+    <string name="the_first_point">第一点</string>
+    <string name="the_second_thing">第二点</string>
+    <string name="the_third_point">第三点</string>
+    <string name="nmdybb">你妈的有病吧</string>
+    <string name="i_delete">我给你删掉</string>
+    <string name="modal_words">语气词</string>
+    <string name="aiya">哎呀</string>
+    <string name="aiyaha">哎呀哈</string>
+    <string name="keyboard_title">藏禁阁</string>
 </resources>
