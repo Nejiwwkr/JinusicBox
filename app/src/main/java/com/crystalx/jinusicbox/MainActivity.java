@@ -26,6 +26,8 @@ import java.util.Objects;
  * {@link MainActivity#playSound(Context context, int id)}//普通播放音乐<br>
  * {@link MainActivity#playSoundLegato(Context context, int id)}//不允许重叠地播放音乐<br>
  * {@link MainActivity#playSoundSync(Context context, int id)}//<strong>同步化地</strong>播放音乐，用于连续播放一段音频序列<br>
+ * {@link MainActivity#playSoundAsync(Context context, int gapTime, int... IDs)}//另一种<strong>同步化地</strong>播放音乐，用于连续播放一段音频序列。<br>
+ * (但可调节间隔，这在识别文字序列会派上大用场)<p>
  * context:播放的<strong>Activity</strong><br>
  * id:对应音乐文件的{@link R.raw}<strong>编号</strong><br>
  * <strong>注意：这些方法与{@link musicButton}无直接关系</strong>
@@ -186,10 +188,12 @@ public class MainActivity extends AppCompatActivity {
         if(!mp_sync.isPlaying()) mp_sync.release();
     }
 
-    private static Runnable mp_sync_runnable;
+    /**
+     * @see MainActivity
+     */
     public synchronized static void playSoundAsync(Context context, int gapTime, int... IDs) {
-        mp_sync_runnable = () -> {
-            for (int i : IDs){
+        Runnable mp_sync_runnable = () -> {
+            for (int i : IDs) {
                 mp_sync = MediaPlayer.create(context, i);
                 mp_sync.start();
                 try {
@@ -197,11 +201,11 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if(!mp_sync.isPlaying()) mp_sync.release();
+                if (!mp_sync.isPlaying()) mp_sync.release();
             }
         };
-        Thread t = new Thread(mp_sync_runnable);
-        t.start();
+        Thread mediaThread = new Thread(mp_sync_runnable);
+        mediaThread.start();
     }
 
     static MediaPlayer mp_legato = new MediaPlayer();

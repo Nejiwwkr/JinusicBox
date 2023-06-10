@@ -7,10 +7,10 @@ android {
 
     defaultConfig {
         applicationId "com.crystalx.jinusicbox"
-        minSdk 30
+        minSdk 29
         targetSdk 32
-        versionCode 15
-        versionName '1.5e(preview)'
+        versionCode 17
+        versionName '1.7F-#3.12release(preview)'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

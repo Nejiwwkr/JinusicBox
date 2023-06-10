@@ -5,7 +5,6 @@ import static com.crystalx.jinusicbox.MainActivity.DLC_Count;
 import static com.crystalx.jinusicbox.MainActivity.count;
 import static com.crystalx.jinusicbox.MainActivity.editor;
 import static com.crystalx.jinusicbox.MainActivity.is_DLC_HU_Activated;
-import static com.crystalx.jinusicbox.MainActivity.playSoundAsync;
 import static com.crystalx.jinusicbox.MainActivity.surprise_count;
 
 import androidx.appcompat.app.AlertDialog;

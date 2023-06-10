@@ -244,7 +244,7 @@ class Chords implements ChordArraysUtil{
         public String getDisplayStyle() {
             return displayStyle;
         }
-        public static Type[] types = {Major,Minor,Augmented,Diminished,Suspension2,Suspension4};
+        public static final Type[] types = {Major,Minor,Augmented,Diminished,Suspension2,Suspension4};
     }
 
     static class ChordAddition{

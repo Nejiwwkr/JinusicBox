@@ -12,12 +12,12 @@
 * **v1.7a 局域网联机功能**
 
 ## 未解决bug
->```java
+```java
 >for (musicButton mb : musicButtons) {
->  musicButton.getButton().setOnClickListener(view -> 
+>  mb.getButton().setOnClickListener(view -> 
 >    mb.getButton().startAnimation(anim););
 >  }
 >//这会引起一些神秘的动画bug
 >//当多个按键同时点击，并且在动画未播完时点击其他按键
 >//就可以在不点击的情况下触发动画
->```
+```
