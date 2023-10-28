@@ -111,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
                 new musicButton(findViewById(R.id.btn_jp_smms), R.raw.jp_simimase),
                 new musicButton(findViewById(R.id.btn_jp_wdxw), R.raw.jp_wadaxiwa, "jw"),
 
+                new musicButton(findViewById(R.id.btn_majiang), R.raw.zhangjian_words_a),
+                new musicButton(findViewById(R.id.btn_fanyuhao_jp), R.raw.fanyuhao_wagalimashida),
+                new musicButton(findViewById(R.id.btn_fanyuhao_anjing), R.raw.fanyuhao_anjin),
+                new musicButton(findViewById(R.id.btn_fanyuhao_call_father), R.raw.fanyuhao_father),
+
                 new musicButton(findViewById(R.id.btn_hu_cao), R.raw.hu_cao),
                 new musicButton(findViewById(R.id.btn_hu_cnm), R.raw.hu_cnm),
         };
@@ -122,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
                 //播放音乐
                 playSound(this,mb.getMusicID());
+                //SoundPlayer.playSound(getAssets(), mb.getMusicID());
+
                 //检查个数弹窗
                 this.checkCount();
                 //更新点击数
@@ -165,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
      * @see MainActivity
      */
     public static void playSound(Context context, int id) {
-        MediaPlayer mp_ps = new MediaPlayer();
+        MediaPlayer mp_ps;
         mp_ps = MediaPlayer.create(context, id);
         mp_ps.start();
         if(!mp_ps.isPlaying()) mp_ps.release();

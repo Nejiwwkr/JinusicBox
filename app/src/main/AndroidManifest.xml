@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.crystalx.jinusicbox"
-    android:versionCode="15"
+    android:versionCode="19"
     android:versionName="@string/version">
 
     <application
@@ -15,6 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JinusicBox"
         tools:targetApi="31">
+        <activity
+            android:name=".CommandActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".PureActivity"
             android:exported="false">

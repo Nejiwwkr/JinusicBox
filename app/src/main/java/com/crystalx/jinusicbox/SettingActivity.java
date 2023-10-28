@@ -97,6 +97,10 @@ public class SettingActivity extends AppCompatActivity {
             b.show();
         });
 
+        //命令系统跳转
+        View command = findViewById(R.id.command);
+        command.setOnClickListener(view -> startActivity(new Intent(SettingActivity.this,CommandActivity.class)));
+
         //兑换码
         Button cd_key_btn = findViewById(R.id.cd_key_btn);
         TextView cd_key_et = findViewById(R.id.cd_key_et);
